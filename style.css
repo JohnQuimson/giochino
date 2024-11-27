@@ -29,6 +29,7 @@ header h1 {
   display: grid;
   grid-template-columns: repeat(5, 100px);
   gap: 10px;
+  justify-content: center;
 }
 
 .card {
@@ -40,10 +41,12 @@ header h1 {
   justify-content: center;
   align-items: center;
   background-color: #ccc;
+  transition: transform 0.3s ease-in-out;
+}
 
-  &:hover {
-    background-color: red;
-  }
+.card:hover {
+  background-color: red;
+  transform: scale(1.1);
 }
 
 .card img {
@@ -54,4 +57,45 @@ header h1 {
 
 .card.flipped img {
   display: block;
+}
+
+/* Media Query per dispositivi mobili */
+@media (max-width: 768px) {
+  .game-board {
+    grid-template-columns: repeat(5, 80px); /* Modifica il numero di colonne per dispositivi più piccoli */
+  }
+
+  .card {
+    width: 80px;
+    height: 80px; /* Riduci la dimensione delle carte per adattarle allo schermo */
+  }
+
+  header h1 {
+    font-size: 24px; /* Riduci la dimensione del titolo */
+  }
+
+  /* Messaggio di vittoria e pulsante */
+  #win-message {
+    font-size: 20px; /* Riduci la dimensione del testo per il messaggio di vittoria */
+    padding: 15px;
+  }
+
+  #restart-button {
+    font-size: 16px; /* Riduci la dimensione del pulsante */
+  }
+}
+
+@media (max-width: 480px) {
+  .game-board {
+    grid-template-columns: repeat(2, 80px); /* Modifica ulteriormente per schermi molto piccoli */
+  }
+
+  .card {
+    width: 70px;
+    height: 70px; /* Riduci ulteriormente la dimensione delle carte */
+  }
+
+  header h1 {
+    font-size: 20px; /* Ancora più piccolo per schermi molto piccoli */
+  }
 }
